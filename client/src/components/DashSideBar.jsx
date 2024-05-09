@@ -59,6 +59,7 @@ const DashSideBar = () => {
               Profile
             </SidebarItem>
           </Link>
+          {/* if the currentUser's isAmin is true then we show this element to the admin post page */}
           {currentUser.isAdmin && (
             <Link to="/dashboard?tab=posts">
               <SidebarItem
