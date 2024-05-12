@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Navbar,
@@ -25,6 +25,25 @@ const Header = () => {
   const { currentUser } = useSelector((state) => state.user);
   const { theme } = useSelector((state) => state.theme);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const handleSignOut = async () => {
     try {
       const res = await fetch('/api/user/signout', {
@@ -45,7 +64,7 @@ const Header = () => {
   }
 
   return (
-    <Navbar className="border-b-2">
+    <Navbar className={`border-b-2 ${isScrolled ? "fixed top-0 w-full z-50 bg-white shadow-md transition-all duration-300 ease-in-out" : ""}`}>
       <Link
         to="/"
         className=" self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
@@ -68,7 +87,7 @@ const Header = () => {
       </Button>
       <div className="flex gap-2 md:order-2">
         <Button
-          className="w-12 h-10 hidden sm:inline"
+          className="w-12 h-10 hidden lg:inline"
           color="gray"
           pill
           onClick={() => dispatch(toggleTheme())}

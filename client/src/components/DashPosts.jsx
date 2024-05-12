@@ -122,7 +122,7 @@ const DashPosts = () => {
                       {post.title}
                     </Link>
                   </TableCell>
-                  <TableCell>{post.category}</TableCell>
+                  <TableCell>{(post.category).toUpperCase()}</TableCell>
                   <TableCell>
                     <span
                       className="font-medium text-red-500 hover:underline cursor-pointer"
@@ -131,7 +131,7 @@ const DashPosts = () => {
                         setPostIdToDelete(post._id)
                       }}
                     >
-                      Delete
+                      DELETE
                     </span>
                   </TableCell>
                   <TableCell>
@@ -139,7 +139,7 @@ const DashPosts = () => {
                       className="text-teal-500 hover:underline font-medium"
                       to={`/updatepost/${post._id}`}
                     >
-                      <span>Edit</span>
+                      <span>EDIT</span>
                     </Link>
                   </TableCell>
                 </TableRow>
