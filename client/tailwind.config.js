@@ -12,7 +12,8 @@ export default {
   },
   plugins: [
     require('tailwind-scrollbar'),
-    flowbite.plugin()
+    flowbite.plugin(),
+    require('@tailwindcss/line-clamp')
   ],
 }
 
