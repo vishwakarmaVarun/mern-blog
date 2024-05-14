@@ -37,8 +37,8 @@ const FooterCom = () => {
                     <FooterLink href="https://github.com/vishwakarmaVarun" target="_blank" rel="noopener noreferrer">
                         GitHub
                     </FooterLink>
-                    <FooterLink href="#">
-                        Discord
+                    <FooterLink href="https://varun-portfolio-mauve.vercel.app/" target="_blank" rel="noopener noreferrrer">
+                        Portfolio
                     </FooterLink>
                 </FooterLinkGroup>
             </div>
