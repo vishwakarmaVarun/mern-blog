@@ -112,7 +112,6 @@ export const deleteComment = async (req, res, next) => {
   }
 }
 
-// creating an api to get the comments from database
 export const getcomments = async (req, res, next) => {
   if(!req.user.isAdmin){
     return next(errorHandler(403, "You are not allowed to get all the comments"))
