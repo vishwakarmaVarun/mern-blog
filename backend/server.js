@@ -8,11 +8,9 @@ import postRoutes from './routes/post.route.js'
 import commentRoutes from './routes/comment.route.js'
 import cookieParser from 'cookie-parser';
 import path from 'path'
-import { fileURLToPath } from 'url';
 
-//Resolving dirname for ES module
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+
+const __dirname = path.resolve()
 
 const app = express();
 
@@ -28,7 +26,7 @@ app.use('/api/comment', commentRoutes)
 app.use(express.static(path.join(__dirname, '/client/dist')))
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/client/dist/index.html'))
+    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
 })
 
 // Error handling middleware
