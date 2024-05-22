@@ -108,7 +108,7 @@ const Header = () => {
       </Button>
       <div className="flex gap-2 md:order-2">
         <Button
-          className="w-12 h-10 hidden lg:inline"
+          className="w-12 h-10"
           color="gray"
           pill
           onClick={() => dispatch(toggleTheme())}
